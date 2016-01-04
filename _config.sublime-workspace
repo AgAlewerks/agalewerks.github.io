@@ -1,0 +1,427 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"copy",
+				"copyFiles"
+			],
+			[
+				"working",
+				"workingDirectory"
+			],
+			[
+				"vi",
+				"viewModel"
+			],
+			[
+				"model",
+				"modelValue"
+			],
+			[
+				"value",
+				"valueAccessor"
+			],
+			[
+				"sele",
+				"selectedConsultant"
+			],
+			[
+				"distan",
+				"compareStoreByDistance"
+			],
+			[
+				"v",
+				"VisibleStores"
+			],
+			[
+				"Vi",
+				"ViewModel"
+			],
+			[
+				"Cash",
+				"CashAm"
+			],
+			[
+				"Cas",
+				"CashAm"
+			],
+			[
+				"ma",
+				"matchingLocations"
+			],
+			[
+				"has",
+				"hasBrand"
+			],
+			[
+				"Selected",
+				"SelectedBrands"
+			],
+			[
+				"font",
+				"font-style"
+			],
+			[
+				"sel",
+				"self"
+			],
+			[
+				"Sele",
+				"SelectedRadius"
+			],
+			[
+				"ob",
+				"observable"
+			],
+			[
+				"new",
+				"newValue"
+			],
+			[
+				"Sel",
+				"SelectedBrands"
+			],
+			[
+				"o",
+				"observable"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 87.0,
+		"last_filter": "Insta",
+		"selected_items":
+		[
+			[
+				"Insta",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Add Repository"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
+			[
+				"Instal",
+				"Package Control: Install Package"
+			],
+			[
+				"Bing",
+				"Preferences: Key Bindings - Default"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib2,os,hashlib; h = '2deb499853c4371624f5a07e27c334aa' + 'bf8c4e67d14fb0525ba4f89698a6d7e1'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), 'wb' ).write(by) if dh == h else None; print('Error validating download (got %s instead of %s), please try manual install' % (dh, h) if dh != h else 'Please restart Sublime Text to finish installation')",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/Barry/Projects/agalewerks/agalewerks.github.io/Gemfile",
+		"/Users/Barry/Documents/taps-and-caps.json",
+		"/Users/Barry/Documents/Projects/bforrest.github.com/_config.yml",
+		"/Users/Barry/Documents/Projects/bforrest.github.com/.gitignore",
+		"/Users/Barry/Documents/javascripting/function-arguments.js",
+		"/Users/Barry/Documents/Projects/bforrest.github.com/source/about/index.markdown",
+		"/Users/Barry/Projects/bforrest/_site/about/index.html",
+		"/Users/Barry/Projects/bforrest/response.xml",
+		"/Users/Barry/Documents/Projects/bforrest.github.com/source/_posts/2012-01-21-Tree-Trim-Source-Cleaner.markdown",
+		"/Users/Barry/Documents/Projects/bforrest.github.com/source/_posts/2012-02-27-Programming-and-Barriers-to-Entry.markdown",
+		"/Users/Barry/Projects/bforrest/_posts/2012-01-21-treetrim-trims-source-code-trees.html",
+		"/Users/Barry/Projects/bforrest/blog_posts.xml",
+		"/Users/Barry/.gitconfig",
+		"/Users/Barry/Documents/learnyouanode/firstio.js",
+		"/Users/Barry/Documents/learnyouanode/babystep.js",
+		"/Users/Barry/Documents/Projects/nodebot/bot.js",
+		"/Users/Barry/Documents/Projects/bforrest.github.com/rss.xml",
+		"/Users/Barry/learning_grunt/markdown/sass/style.scss",
+		"/Users/Barry/learning_grunt/markdown/sass/_layout.scss",
+		"/Users/Barry/learning_grunt/markdown/package.json",
+		"/Users/Barry/learning_grunt/markdown/Gruntfile.js",
+		"/Users/Barry/learning_grunt/deployment/Gruntfile.js",
+		"/Users/Barry/learning_grunt/markdown/index.html",
+		"/Users/Barry/learning_grunt/deployment/index.html",
+		"/Users/Barry/learning_grunt/markdown/coffeescript/markdown_converter.coffee",
+		"/Users/Barry/learning_grunt/markdown/coffeescript/app.coffee",
+		"/Users/Barry/learning_grunt/markdown/coffeescript/main_controller.coffee",
+		"/Users/Barry/Documents/Projects/Recruiting/Gruntfile.js",
+		"/Users/Barry/learning_grunt/deployment/javascripts/app.js",
+		"/Users/Barry/learning_grunt/deployment/stylesheets/styles.css",
+		"/styleshttes/style.css",
+		"/stylesheets/style.css",
+		"/Users/Barry/learning_grunt/kicking_tires/Gruntfile.js",
+		"/Users/Barry/Documents/Categories.json",
+		"/Users/Barry/Documents/Projects/durandal_subviews/app/eventAggregator/default/subscriber.html",
+		"/Users/Barry/Documents/Projects/durandal_subviews/app/eventAggregator/default/subscriber.js",
+		"/Users/Barry/Documents/Projects/durandal_subviews/app/eventAggregator/default/publisher.js",
+		"/Users/Barry/Documents/Projects/durandal_subviews/app/eventAggregator/default/publisher.html",
+		"/Users/Barry/Documents/Projects/durandal_subviews/app/eventAggregator/default/index.js",
+		"/Users/Barry/Documents/Projects/HTML StarterKit/app/viewmodels/ob_value_hack.js",
+		"/Users/Barry/Documents/Projects/HTML StarterKit/app/viewmodels/nestedProperty.js",
+		"/Users/Barry/Documents/Projects/HTML StarterKit/app/views/nestedProperty.html",
+		"/Users/Barry/Documents/Projects/HTML StarterKit/app/views/ob_value_hack.html",
+		"/Users/Barry/Documents/Projects/HTML StarterKit/lib/knockout/knockout-2.3.0.debug.js",
+		"/Users/Barry/Documents/Projects/HTML StarterKit/README.md",
+		"/Users/Barry/Documents/Projects/HTML StarterKit/app/views/pickadate.html",
+		"/Users/Barry/Documents/Projects/HTML StarterKit/app/viewmodels/pickadate.js",
+		"/Users/Barry/Documents/Projects/HTML StarterKit/app/viewmodels/teh_codez.html",
+		"/Users/Barry/Documents/Projects/HTML StarterKit/app/viewmodels/shell.js",
+		"/Users/Barry/Documents/Projects/HTML StarterKit/index.html",
+		"/Users/Barry/Documents/Projects/HTML StarterKit/app/main.js",
+		"/Users/Barry/Documents/Projects/HTML StarterKit/app/views/obPluginPickDate.html",
+		"/Users/Barry/gitignore_global",
+		"/Users/Barry/gitconfig",
+		"/Users/Barry/Documents/Projects/HTML StarterKit/lib/durandal/js/plugins/observable.js",
+		"/Users/Barry/Documents/Projects/HTML StarterKit/app/viewmodels/obPluginPickDate.js",
+		"/Users/Barry/Documents/Projects/HTML StarterKit/app/views/flickr.html",
+		"/Users/Barry/Documents/Projects/HTML StarterKit/app/views/shell.html",
+		"/Users/Barry/Documents/Projects/HTML StarterKit/app/viewmodels/flickr.js",
+		"/Users/Barry/Dropbox/Improving/Interviews/NicholasGerne.txt",
+		"/Users/Barry/Documents/Projects/crib/assets/javascripts/app/main.js",
+		"/Users/Barry/Documents/Projects/crib/assets/javascripts/app/viewmodels/shell.js",
+		"/Users/Barry/Documents/Projects/crib/assets/javascripts/app/viewmodels/welcome.js",
+		"/Users/Barry/Documents/Projects/crib/assets/javascripts/app/views/consultants.html",
+		"/Users/Barry/Documents/Projects/crib/assets/javascripts/app/viewmodels/flickr.js",
+		"/Users/Barry/Documents/Projects/crib/assets/javascripts/app/views/detail.html",
+		"/Users/Barry/Documents/Projects/durandal_crib/package.json",
+		"/Users/Barry/Dropbox/Improving/Interviews/adeel_lakhani.txt",
+		"/Users/Barry/Documents/Projects/crib/app.js",
+		"/Users/Barry/Downloads/store_locator_full/store_locator_full_html.html",
+		"/Users/Barry/Documents/CashAmerica/Cash America/BingStoreLocator.ascx",
+		"/Users/Barry/Documents/CashAmerica/Cash America/BingStoreLocator.ascx.cs",
+		"/Users/Barry/Documents/Projects/underscore/sample.html",
+		"/Users/Barry/Documents/Projects/underscore/TestRunner.html",
+		"/Users/Barry/Documents/Projects/underscore/CashAmStoreFinder.js",
+		"/Users/Barry/Documents/Projects/underscore/CashAm_Specs.js",
+		"/Users/Barry/Documents/Projects/underscore/jasmine/console-runner.js",
+		"/Users/Barry/Dropbox/CA guest credentials",
+		"/Users/Barry/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/Barry/Dropbox/Improving/Interviews/Ravi_Dakshinamurthy.txt",
+		"/Users/Barry/Dropbox/Improving/Interviews/Randall_Woodsman.txt",
+		"/Users/Barry/Dropbox/Improving/Incentives/USBC case study.txt",
+		"/Users/Barry/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/Barry/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/Barry/Library/Application Support/Sublime Text 2/Packages/User/vegas",
+		"/Users/Barry/Dropbox/Improving/Interviews/Matt_Evans.txt",
+		"/Users/Barry/Desktop/test.html",
+		"/Users/Barry/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Users/Barry/Dropbox/Improving/Interviews/Patrick_Gary.txt",
+		"/Users/Barry/Documents/BeerSupplies.txt",
+		"/Users/Barry/Documents/Craft_Beer.txt",
+		"/Users/Barry/Dropbox/RomanNumerals.txt",
+		"/Users/Barry/Dropbox/Improving/Interviews/Rafiq_Maulana.txt",
+		"/Users/Barry/Dropbox/Improving/Interviews/Edward_K_Adjei.txt"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"\"text\": ",
+			"    \"geo\": null,\n    \"coordinates\": null,\n    \"place\": null,\n    \"contributors\": null,\n    \"is_quote_status\": false,\n    \"retweet_count\": 0,\n    \"favorite_count\": 0,",
+			"\n    \n    \n    ",
+			"\"in_reply_to_user_id\": null,\n    \"in_reply_to_user_id_str\": null,\n    \"in_reply_to_screen_name\": null,",
+			"\"in_reply_to_status_id_str\": null,",
+			"\"in_reply_to_status_id\": null,",
+			"Wasatch Apricot Hefeweizen",
+			"&rdquo;",
+			"&ldquo;",
+			"&rsquo;",
+			"treetrim",
+			"rss",
+			"working",
+			"');\n",
+			"greater",
+			"valueAccessor",
+			"registerEventHandler",
+			"unwrapObservable",
+			"valueAccessor()",
+			"boundElementDomDataKey",
+			"makeValueAccessor",
+			"valueAccessor",
+			"valueAccessor(",
+			"valueAccessor",
+			"eventName",
+			"valueUpdate",
+			"__ko_boundElement",
+			"writeValueToProperty",
+			"'value'",
+			"value",
+			"domData",
+			"valueAccessor",
+			"addEventListener",
+			"compose",
+			"details",
+			"createExperiences",
+			"\"",
+			"createExperiences",
+			"amp;",
+			");\n",
+			"console.log",
+			"<=  ",
+			"ViewModel",
+			");\n",
+			"<dt",
+			"services",
+			"AMF",
+			"StateChosen",
+			"com.",
+			"BindMapData",
+			"Bing",
+			"SetGeocodes",
+			"txtAddress",
+			"AMF",
+			"name of",
+			"test"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"",
+			"\"",
+			"'",
+			"",
+			"<div"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "_config.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 174.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
