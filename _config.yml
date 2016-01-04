@@ -12,24 +12,24 @@ title: "Ag Alewerks"
 
 
 # The slogan describes your website and is used on homepage in <title> and other important places
-slogan: "Hand crafted ales by Silvia & Barry"
+slogan: "Brewing adventures of Silvia & Barry"
 
 
 # The description is used on homepage and in the footer to quickly describe your website. Use a maximum of 150 characters for SEO-purposes.
-description: "Follow along as Silvia & Barry perfect their breweing and share with friends and followers."
+description: "Brewing adventures of Silvia & Barry."
 
 # Main author of the website
 # See > authors.yml
-author: Barry
+author: barry
 
 # This URL is the main address for absolute links. Don't include a slash at the end.
 #
-url: 'http://agalewerks.com'
+url: 'http://agalewerks.com
 baseurl: ''
 
 # This is for the editing function in _/includes/improve_content
 # Leave it empty if your site is not on GitHub/GitHub Pages
-improve_content: 
+# improve_content: https://github.com/Phlow/feeling-responsive/edit/gh-pages
 
 # This URL points directly to the images directory making
 # things easier to link to images in posts and templates. It needs a slash at the end.
@@ -37,7 +37,7 @@ improve_content:
 # Example: <img src="{{ site.urlimg }}{{ post.image.title }}" />
 # Markdown-Example for posts ![Image Text]({{ site.urlimg }}image.jpg)
 #
-urlimg: 'http://agalewerks.com/images/'
+urlimg: 'http://agalewerks/images/'
 
 
 # Logo size is 600x80 pixels
@@ -109,7 +109,7 @@ defaults:
       show_meta: false 	# Hide metadata for all pages
       # sidebar:    		# Possible values › left, right › by default there will be no sidebar
       comments: false
-      author: Barry     # Default author for pages
+      author: phlow     # Default author for pages
   -
     scope:
       path: ""
@@ -118,7 +118,7 @@ defaults:
       show_meta: true   # Show metadata for all posts
       # sidebar:        # Possible values › left, right › by default there will be no sidebar
       comments: false
-      author: Barry     # Default author for posts
+      author: phlow     # Default author for posts
 
 
 
@@ -140,9 +140,9 @@ defaults:
 #   ___/ / /___/ /_/ /
 #  /____/_____/\____/    Verify Website to Webmaster Tools
 
-google_author:             "https://plus.google.com/u/0/104033127836901954340"
+google_author:             "https://plus.google.com/u/0/118311555303973066167"
 google_site_verification:  "Vk0IOJ2jwG_qEoG7fuEXYqv0m2rLa8P778Fi_GrsgEQ"
-bing_webmastertools_id:    ""
+bing_webmastertools_id:    "0FB4C028ABCF07C908C54386ABD2D97F"
 # alexa_verify_id:         ""
 
 
@@ -174,7 +174,7 @@ msapplication_tilecolor:                "#fabb00"
 #    / __/ / /_/ / /__/  __/ /_/ / /_/ / /_/ / ,<
 #   /_/    \__,_/\___/\___/_.___/\____/\____/_/|_|      Facebook-Optimization › http://j.mp/fb_optimize
 
-og_image:                           ""
+og_image:                           "http://images.phlow.de/phlow/phlow_de-logo-512x.png"
 og_locale:                          "en_EN"
 og_type:                            "website"
 
@@ -189,8 +189,8 @@ og_type:                            "website"
 #
 
 socialmedia:
-    twitter: agalewerks
-    facebook: agalewerks
+    twitter: phlow
+    facebook: phlow.media
 
 
 #        ____  _
@@ -202,7 +202,7 @@ socialmedia:
 #
 # used in _includes/comments
 
-disqus_shortname: agalewerks
+disqus_shortname: feelingresponsive
 
 
 #      _____
@@ -226,7 +226,7 @@ sass:
 #
 # used in _includes/footer_scripts
 
-google_analytics_tracking_id: UA-30867274-3
+google_analytics_tracking_id: UA-60112281-1
 
 
 
