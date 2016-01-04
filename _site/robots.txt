@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: http://agalewerks.com//sitemap.xml
+Sitemap: http://agalewerks.com/sitemap.xml

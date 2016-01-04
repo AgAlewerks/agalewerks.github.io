@@ -1,8 +1,8 @@
 /* TEAM */
 
-Name: Phlow
-Site: http://phlow.de/
-Twitter: @phlow
+Name: Barry Forrest
+Site: http://agalewerks.com/
+Twitter: @bforrest30
 
 
 /* THANKS */
