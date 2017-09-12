@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About 
+title: About
 --- 
 
 Long ago, in a “previous life” both of us were medical laboratory professionals. Mixing reagents and growing bugs was something that I really enjoyed. Software development challenges and pay lured me away from the
