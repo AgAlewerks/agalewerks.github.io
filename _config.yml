@@ -9,7 +9,7 @@ title:            "Ag Alewerks"
 tagline:          'Hand crafted ales by Silvia & Barry'
 description:      'Follow along as Silvia & Barry perfect their breweing and share with friends and followers.'
 url:              'http://agalewerks.com'
-baseurl:          '/'
+baseurl:          ''
 
 author:
   name:           'Barry Forrest'
