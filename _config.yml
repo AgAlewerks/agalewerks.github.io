@@ -1,19 +1,19 @@
 # Dependencies
-highlighter: rouge
+highlighter:      rouge
 
 # Permalinks
-permalink: pretty
+permalink:        pretty
 
 # Setup
-title:            "Ag Alewerks"
-tagline:          'Hand crafted ales by Silvia & Barry'
-description:      'Follow along as Silvia & Barry perfect their breweing and share with friends and followers.'
-url: "http://agalewerks.com"
-baseurl: "/"
+title:            'Ag Alewerks'
+tagline:          'Follow along as Silvia & Barry perfect their breweing and share with friends and followers.'
+description:      'The brewing adventures of Silvia & Barry.'
+url:              "http://agalewerks.com"
+baseurl:          ""
 
-author:           "Barry"
-  name:           "Barry Forrest"
-  url:            "https://twitter.com/@bforrest30"
+author:
+  name:           'Barry Forrest'
+  url:            https://twitter.com/bforrest30
 
 paginate:         5
 
@@ -23,6 +23,4 @@ version:          2.1.0
 github:
   repo:           https://github.com/poole/hyde
 
-google_author:             "https://plus.google.com/u/0/104033127836901954340"
-google_site_verification:  "Vk0IOJ2jwG_qEoG7fuEXYqv0m2rLa8P778Fi_GrsgEQ"
-bing_webmastertools_id:    ""
+plugins: [jekyll-paginate, jekyll-gist]
