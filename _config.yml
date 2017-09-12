@@ -8,8 +8,8 @@ permalink:        pretty
 title:            "Ag Alewerks"
 tagline:          'Hand crafted ales by Silvia & Barry'
 description:      'Follow along as Silvia & Barry perfect their breweing and share with friends and followers.'
-url:              http://agalewerks.com
-baseurl:          /
+url:              'http://agalewerks.com'
+baseurl:          ''
 
 author:
   name:           'Barry Forrest'
@@ -22,3 +22,7 @@ version:          2.1.0
 
 github:
   repo:           https://github.com/poole/hyde
+
+google_author:             "https://plus.google.com/u/0/104033127836901954340"
+google_site_verification:  "Vk0IOJ2jwG_qEoG7fuEXYqv0m2rLa8P778Fi_GrsgEQ"
+bing_webmastertools_id:    ""
