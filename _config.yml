@@ -11,7 +11,7 @@ description:      'Follow along as Silvia & Barry perfect their breweing and sha
 url:              "http://agalewerks.com"
 baseurl:          "/"
 
-author:           Barry
+author:           "Barry"
   name:           "Barry Forrest"
   url:            "https://twitter.com/@bforrest30"
 
