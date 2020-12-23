@@ -6,7 +6,6 @@ date: 2020-12-23
 
 ### Thistle Dew Scottish Export Ale
 
-#### Impression
 
   BJCP describes a Scottich Export as 
   
