@@ -64,3 +64,6 @@ weight = 3
 name = "instagram"
 url = "https://instagram.com/agalewerks/"
 weight = 5
+
+[markup.goldmark.renderer]
+unsafe = true
