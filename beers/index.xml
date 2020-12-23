@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ag Alewerks</title>
-    <link>https://agalewerks.com/</link>
-    <description>Recent content on Ag Alewerks</description>
+    <title>Beers on Ag Alewerks</title>
+    <link>https://agalewerks.com/beers/</link>
+    <description>Recent content in Beers on Ag Alewerks</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 23 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://agalewerks.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://agalewerks.com/beers/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Strisselspalt Pilsner</title>
       <link>https://agalewerks.com/beers/strisselspaltpilsner/</link>
@@ -25,16 +25,6 @@ We sampled the current wares and I was smitten by the BECKHAM STREET – HOPPY P
       <guid>https://agalewerks.com/beers/thistledew/</guid>
       <description>Thistle Dew Scottish Export Ale Impression BJCP describes a Scottich Export as
 A malt-focused, generally caramelly beer with perhaps a few esters and occasionally a butterscotch aftertaste. Hops only to balance and support the malt. The malt character can range from dry and grainy to rich, toasty, and caramelly, but is never roasty and especially never has a peat smoke character. The Story This beer was born out of a “Hopped Challenge” sponsored by Cobra Brewing in Lewisville, Texas.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://agalewerks.com/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://agalewerks.com/about/</guid>
-      <description>Long ago, in a “previous life” both of us were medical laboratory professionals. Mixing reagents and growing bugs was something that I really enjoyed. Software development challenges and pay lured me away from the laboratory, but I have always sort of missed the precision of measuring, mixing, and testing.
-When I would yen for tgit he good ol’ days in the lab, Silvia would suggest that I start home brewing beer.</description>
     </item>
     
   </channel>

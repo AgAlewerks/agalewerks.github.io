@@ -3,11 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://agalewerks.com/about/</loc>
+    <loc>https://agalewerks.com/</loc>
+    <lastmod>2020-12-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://agalewerks.com/</loc>
+    <loc>https://agalewerks.com/beers/</loc>
+    <lastmod>2020-12-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agalewerks.com/beers/strisselspaltpilsner/</loc>
+    <lastmod>2020-12-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agalewerks.com/beers/thistledew/</loc>
+    <lastmod>2020-12-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agalewerks.com/about/</loc>
   </url>
   
   <url>
