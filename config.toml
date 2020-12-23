@@ -1,0 +1,67 @@
+baseURL = "https://agalewerks.com/" 
+disqusShortname = "username" # delete this to disable disqus comments
+googleAnalytics = "" 
+languageCode = "en-us" 
+theme = "minimal" 
+title = "Ag Alewerks" 
+
+[params]
+accent = "orange" 
+author = "Barry Forrest" 
+backgroundColor = "white" 
+description = "Hand crafted ales by Silvia & Barry" 
+font = "Raleway" # should match the name on Google Fonts!
+githubUsername = "#" 
+highlight = true 
+highlightLanguages = ["go", "haskell", "kotlin", "scala", "swift"] 
+highlightStyle = "default" 
+showBorder = true 
+
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "About"
+url = "/about/"
+weight = 2
+
+[[menu.main]]
+name = "Posts"
+url = "/post/"
+weight = 3
+
+[[menu.main]]
+name = "Projects"
+url = "/project/"
+weight = 4
+
+# Social icons to be shown on the right-hand side of the navigation bar.
+# The "name" field should match the name of the icon in Font Awesome.
+# The list of available icons can be found at http://fontawesome.io/icons.
+
+[[menu.icon]]
+name = "envelope-o"
+url = "mailto:me@example.com"
+weight = 1
+
+[[menu.icon]]
+name = "github"
+url = "https://github.com/username/"
+weight = 2
+
+[[menu.icon]]
+name = "twitter"
+url = "https://twitter.com/username/"
+weight = 3
+
+[[menu.icon]]
+name = "linkedin"
+url = "https://www.linkedin.com/in/username/"
+weight = 4
+
+[[menu.icon]]
+name = "stack-overflow"
+url = "https://www.stackoverflow.com/username/"
+weight = 5
