@@ -1,5 +1,5 @@
 baseURL = "https://agalewerks.com/" 
-disqusShortname = "username" # delete this to disable disqus comments
+disqusShortname = "barryforrest" # delete this to disable disqus comments
 googleAnalytics = "" 
 languageCode = "en-us" 
 theme = "minimal" 
@@ -33,9 +33,13 @@ url = "/post/"
 weight = 3
 
 [[menu.main]]
-name = "Projects"
-url = "/project/"
-weight = 4
+name = "Beers"
+url = "/beers/"
+weight = 3
+# [[menu.main]]
+# name = "Projects"
+# url = "/project/"
+# weight = 4
 
 # Social icons to be shown on the right-hand side of the navigation bar.
 # The "name" field should match the name of the icon in Font Awesome.
@@ -43,25 +47,20 @@ weight = 4
 
 [[menu.icon]]
 name = "envelope-o"
-url = "mailto:me@example.com"
+url = "mailto:brewer@agalewerks.com"
 weight = 1
 
-[[menu.icon]]
-name = "github"
-url = "https://github.com/username/"
-weight = 2
+# [[menu.icon]]
+# name = "github"
+# url = "https://github.com/username/"
+# weight = 2
 
 [[menu.icon]]
 name = "twitter"
-url = "https://twitter.com/username/"
+url = "https://twitter.com/agalewerks/"
 weight = 3
 
 [[menu.icon]]
-name = "linkedin"
-url = "https://www.linkedin.com/in/username/"
-weight = 4
-
-[[menu.icon]]
-name = "stack-overflow"
-url = "https://www.stackoverflow.com/username/"
+name = "instagram"
+url = "https://instagram.com/agalewerks/"
 weight = 5
