@@ -23,15 +23,31 @@
   </url>
   
   <url>
+    <loc>https://agalewerks.com/tags/brewing/</loc>
+    <lastmod>2016-08-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agalewerks.com/post/ingredients/</loc>
+    <lastmod>2016-08-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agalewerks.com/post/</loc>
+    <lastmod>2016-08-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agalewerks.com/tags/</loc>
+    <lastmod>2016-08-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://agalewerks.com/about/</loc>
   </url>
   
   <url>
     <loc>https://agalewerks.com/categories/</loc>
-  </url>
-  
-  <url>
-    <loc>https://agalewerks.com/tags/</loc>
   </url>
   
 </urlset>
