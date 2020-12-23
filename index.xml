@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ag Alewerks</title>
+    <link>https://agalewerks.com/</link>
+    <description>Recent content on Ag Alewerks</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://agalewerks.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>https://agalewerks.com/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://agalewerks.com/about/</guid>
+      <description>Long ago, in a “previous life” both of us were medical laboratory professionals. Mixing reagents and growing bugs was something that I really enjoyed. Software development challenges and pay lured me away from the laboratory, but I have always sort of missed the precision of measuring, mixing, and testing.
+When I would yen for tgit he good ol’ days in the lab, Silvia would suggest that I start home brewing beer.</description>
+    </item>
+    
+  </channel>
+</rss>
