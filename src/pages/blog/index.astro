@@ -1,14 +1,45 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
-import { getCollection } from 'astro:content';
-import FormattedDate from '../../components/FormattedDate.astro';
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+import { getCollection } from "astro:content";
+import FormattedDate from "../../components/FormattedDate.astro";
 
-const posts = (await getCollection('blog')).sort(
+const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
+const stripMarkdown = (content: string): string =>
+  content
+    .replace(/```[\s\S]*?```/g, " ")
+    .replace(/`[^`]*`/g, " ")
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, " ")
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/(^|\s)[#>*_~\-]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+const createExcerpt = (content: string, maxLength = 180): string => {
+  const plainText = stripMarkdown(content);
+  if (plainText.length <= maxLength) {
+    return plainText;
+  }
+
+  const clipped = plainText.slice(0, maxLength);
+  const lastSpace = clipped.lastIndexOf(" ");
+  return `${(lastSpace > 0 ? clipped.slice(0, lastSpace) : clipped).trim()}...`;
+};
+
+const postsWithPreview = posts.map((post) => {
+  const body = typeof post.body === "string" ? post.body : "";
+  return {
+    ...post,
+    excerpt: createExcerpt(body),
+  };
+});
+
 const base = import.meta.env.BASE_URL;
 ---
 
@@ -55,6 +86,21 @@ const base = import.meta.env.BASE_URL;
         margin: 0;
         color: rgb(var(--gray));
       }
+      .preview-description,
+      .preview-excerpt {
+        margin: 0.5rem 0 0;
+        color: rgb(var(--gray-dark));
+        line-height: 1.45;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .preview-description {
+        -webkit-line-clamp: 2;
+      }
+      .preview-excerpt {
+        -webkit-line-clamp: 3;
+      }
       ul li a:hover .title {
         color: var(--accent);
       }
@@ -85,13 +131,15 @@ const base = import.meta.env.BASE_URL;
         <h1>All Posts</h1>
         <ul>
           {
-            posts.map((post) => (
+            postsWithPreview.map((post) => (
               <li>
                 <a href={`${base}blog/${post.id}/`}>
                   <h4 class="title">{post.data.title}</h4>
                   <p class="date">
                     <FormattedDate date={post.data.pubDate} />
                   </p>
+                  <p class="preview-description">{post.data.description}</p>
+                  <p class="preview-excerpt">{post.excerpt}</p>
                 </a>
               </li>
             ))
