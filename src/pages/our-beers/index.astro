@@ -1,0 +1,52 @@
+---
+import Page from '../../layouts/Page.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<Page title="Our Beers" description="The beers brewed at Ag Alewerks">
+  <h1>Our Beers</h1>
+
+  <ul class="beer-list">
+    <li>
+      <h2><a href={`${base}our-beers/strisselspalt-pilsner/`}>Strisselspalt Pilsner</a></h2>
+      <p>
+        Our new for Bluebonnet Brew-off 2019 pilsner was inspired by a beverage that we
+        sampled while vacationing in Virginia. A former Dallas area brewer had taken up shop
+        at Wort Hog Brewing so we ducked in to see what Jeremy had gotten himself into. We
+        sampled all of the current wares and I was smitten…
+        <a href={`${base}our-beers/strisselspalt-pilsner/`}>Continue reading</a>
+      </p>
+    </li>
+    <li>
+      <h2><a href={`${base}our-beers/thistle-dew/`}>Thistle Dew</a></h2>
+      <p>
+        This beer was born out of a "Hopped Challenge" sponsored by Cobra Brewing in
+        Lewisville, Texas. We were handed a brown sack full of honey malt, about a pound
+        and a half, along with a jar of dark malt extract and told that we had to use the
+        ingredients somewhere in our brewing process.
+        <a href={`${base}our-beers/thistle-dew/`}>Continue reading</a>
+      </p>
+    </li>
+  </ul>
+</Page>
+
+<style>
+  .beer-list {
+    list-style: none;
+    padding: 0;
+  }
+  .beer-list li {
+    margin-bottom: 2em;
+    padding-bottom: 2em;
+    border-bottom: 1px solid rgb(var(--gray-light));
+  }
+  .beer-list li:last-child {
+    border-bottom: none;
+  }
+  .beer-list h2 {
+    margin-bottom: 0.25em;
+  }
+  .beer-list h2 a {
+    text-decoration: none;
+  }
+</style>
