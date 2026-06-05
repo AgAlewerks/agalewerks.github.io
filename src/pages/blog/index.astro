@@ -5,32 +5,11 @@ import Footer from "../../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
+import { createExcerpt } from "../../utils/excerpt";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
-
-const stripMarkdown = (content: string): string =>
-  content
-    .replace(/```[\s\S]*?```/g, " ")
-    .replace(/`[^`]*`/g, " ")
-    .replace(/!\[[^\]]*\]\([^)]*\)/g, " ")
-    .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")
-    .replace(/<[^>]+>/g, " ")
-    .replace(/(^|\s)[#>*_~\-]+/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-
-const createExcerpt = (content: string, maxLength = 180): string => {
-  const plainText = stripMarkdown(content);
-  if (plainText.length <= maxLength) {
-    return plainText;
-  }
-
-  const clipped = plainText.slice(0, maxLength);
-  const lastSpace = clipped.lastIndexOf(" ");
-  return `${(lastSpace > 0 ? clipped.slice(0, lastSpace) : clipped).trim()}...`;
-};
 
 const postsWithPreview = posts.map((post) => {
   const body = typeof post.body === "string" ? post.body : "";
