@@ -1,40 +1,85 @@
 ---
-import Page from '../../layouts/Page.astro';
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+import { getCollection } from "astro:content";
+import FormattedDate from "../../components/FormattedDate.astro";
+
+const beers = (await getCollection("beers")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const stripMarkdown = (content: string): string =>
+  content
+    .replace(/```[\s\S]*?```/g, " ")
+    .replace(/`[^`]*`/g, " ")
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, " ")
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/(^|\s)[#>*_~\-]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+const createExcerpt = (content: string, maxLength = 180): string => {
+  const plainText = stripMarkdown(content);
+  if (plainText.length <= maxLength) {
+    return plainText;
+  }
+  const clipped = plainText.slice(0, maxLength);
+  const lastSpace = clipped.lastIndexOf(" ");
+  return `${(lastSpace > 0 ? clipped.slice(0, lastSpace) : clipped).trim()}...`;
+};
+
+const beersWithPreview = beers.map((beer) => {
+  const body = typeof beer.body === "string" ? beer.body : "";
+  return {
+    ...beer,
+    excerpt: createExcerpt(body),
+  };
+});
+
 const base = import.meta.env.BASE_URL;
 ---
 
-<Page title="Our Beers" description="The beers brewed at Ag Alewerks">
-  <h1>Our Beers</h1>
-
-  <div class="not-prose space-y-8 mt-8">
-    <article class="border-b border-muted-light pb-8 last:border-b-0">
-      <h2 class="text-2xl font-bold mb-2">
-        <a href={`${base}our-beers/strisselspalt-pilsner/`} class="text-ale-dark hover:text-ale-amber no-underline">
-          Strisselspalt Pilsner
-        </a>
-      </h2>
-      <p class="text-muted-dark m-0">
-        Our new for Bluebonnet Brew-off 2019 pilsner was inspired by a beverage that we
-        sampled while vacationing in Virginia. A former Dallas area brewer had taken up shop
-        at Wort Hog Brewing so we ducked in to see what Jeremy had gotten himself into. We
-        sampled all of the current wares and I was smitten…
-        <a href={`${base}our-beers/strisselspalt-pilsner/`} class="text-ale-amber hover:text-ale-dark whitespace-nowrap">Continue reading</a>
-      </p>
-    </article>
-
-    <article class="border-b border-muted-light pb-8 last:border-b-0">
-      <h2 class="text-2xl font-bold mb-2">
-        <a href={`${base}our-beers/thistle-dew/`} class="text-ale-dark hover:text-ale-amber no-underline">
-          Thistle Dew
-        </a>
-      </h2>
-      <p class="text-muted-dark m-0">
-        This beer was born out of a "Hopped Challenge" sponsored by Cobra Brewing in
-        Lewisville, Texas. We were handed a brown sack full of honey malt, about a pound
-        and a half, along with a jar of dark malt extract and told that we had to use the
-        ingredients somewhere in our brewing process.
-        <a href={`${base}our-beers/thistle-dew/`} class="text-ale-amber hover:text-ale-dark whitespace-nowrap">Continue reading</a>
-      </p>
-    </article>
-  </div>
-</Page>
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={`Our Beers — ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main class="max-w-5xl mx-auto px-4 py-12">
+      <section>
+        <h1 class="text-4xl md:text-5xl font-bold text-ink mb-8 text-center">Our Beers</h1>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-6 list-none p-0 m-0">
+          {
+            beersWithPreview.map((beer, idx) => (
+              <li class:list={[idx === 0 ? "md:col-span-2 text-center" : ""]}>
+                <a
+                  href={`${base}our-beers/${beer.id}/`}
+                  class="block p-5 rounded-lg no-underline transition-colors hover:bg-muted-light/60 group"
+                >
+                  <h4
+                    class:list={[
+                      "m-0 font-bold text-ink leading-tight group-hover:text-ale-amber transition-colors",
+                      idx === 0 ? "text-3xl md:text-4xl" : "text-xl",
+                    ]}
+                  >
+                    {beer.data.title}
+                  </h4>
+                  <p class="text-sm text-muted my-1.5">
+                    <FormattedDate date={beer.data.pubDate} />
+                  </p>
+                  <p class="text-muted-dark line-clamp-2 m-0">{beer.data.description}</p>
+                  <p class="text-sm text-muted-dark/80 line-clamp-3 mt-2 mb-0">{beer.excerpt}</p>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>
