@@ -5,6 +5,8 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import rehypeExternalLinks from "rehype-external-links";
 
+import netlify from '@astrojs/netlify';
+
 // Custom domain (agalewerks.com via CNAME) — served from the root, no subpath.
 // If you ever switch back to a plain github.io project page, set:
 //   site: 'https://<user>.github.io', base: '/<repo>/'
@@ -12,9 +14,11 @@ export default defineConfig({
   site: 'https://agalewerks.com',
   base: '/',
   integrations: [mdx(), sitemap()],
+
   vite: {
     plugins: [tailwindcss()],
   },
+
   markdown: {
     rehypePlugins: [
       [
@@ -26,4 +30,6 @@ export default defineConfig({
       ],
     ],
   },
+
+  adapter: netlify(),
 });
