@@ -24,7 +24,7 @@ npm run preview
 
 ```text
 .
-├── astro.config.mjs        # site + base URL for GitHub Pages
+├── astro.config.mjs        # site + base URL for Netlify/custom domain
 ├── package.json
 ├── public/
 │   └── favicon.svg
@@ -47,34 +47,24 @@ npm run preview
 │   │   │   └── strisselspalt-pilsner.astro
 │   │   └── rss.xml.js              # RSS feed
 │   └── styles/global.css
-└── .github/workflows/deploy.yml    # GitHub Pages auto-deploy
+└── dist/                  # production build output
 ```
 
-## Deploying to GitHub Pages
+## Deploying
 
-The `.github/workflows/deploy.yml` workflow auto-builds and publishes on every push to `main`. Three things to do once:
+This project is set up for Netlify. Connect the repo, then use these settings:
 
-1. **Create the repo on GitHub** (let's say `https://github.com/<you>/agalewerks`).
-2. **Edit `astro.config.mjs`** so `site` and `base` match your repo:
+1. **Build command:** `npm run build`
+2. **Publish directory:** `dist`
+3. **Environment:** leave the default Node version unless Netlify asks for one explicitly
+
+`astro.config.mjs` already points at the production site and root base path:
    ```js
-   site: 'https://<you>.github.io',
-   base: '/agalewerks/',   // or '/' if this is your user.github.io repo
+   site: 'https://agalewerks.com',
+   base: '/',
    ```
-3. **In the repo on GitHub:** Settings → Pages → "Build and deployment" → **Source: GitHub Actions**.
 
-Push to `main` and the workflow will publish to `https://<you>.github.io/agalewerks/`.
-
-### Initial git setup
-
-```bash
-cd agalewerks-astro
-git init
-git add .
-git commit -m "Initial commit — ported from WordPress"
-git branch -M main
-git remote add origin https://github.com/<you>/agalewerks.git
-git push -u origin main
-```
+If you are still seeing a GitHub Pages action named "pages build and deployment" in the GitHub UI, that is a stale workflow/history item from the old setup. It is no longer present in this repository.
 
 ## Notes on the migration
 
