@@ -1,0 +1,21 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import BeerDetail from '../../layouts/BeerDetail.astro';
+
+export async function getStaticPaths() {
+  const beers = await getCollection('beers');
+  return beers.map((beer) => ({
+    params: { slug: beer.id },
+    props: beer,
+  }));
+}
+
+type Props = CollectionEntry<'beers'>;
+
+const beer = Astro.props;
+const { Content } = await render(beer);
+---
+
+<BeerDetail {...beer.data}>
+  <Content />
+</BeerDetail>
