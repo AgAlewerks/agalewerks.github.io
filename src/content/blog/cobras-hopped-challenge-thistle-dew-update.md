@@ -2,7 +2,7 @@
 title: "Cobra's Hopped Challenge (Thistle Dew) Update"
 description: "Our Scottish Export grabbed second place at Cap & Hare and 41 of 50 BJCP points — not bad for a whimsical contest brew."
 pubDate: 2016-08-12
-heroImage: "https://agalewerksblog.wordpress.com/wp-content/uploads/2016/06/screen-shot-2016-06-19-at-11-45-18-am.png?w=680"
+heroImage: "/images/screen-shot-2016-06-19-at-11-45-18-am.png"
 categories: ["brewing", "recipes"]
 tags: []
 ---
@@ -15,4 +15,4 @@ We did take to the [Cap & Hare Masterbrewer](http://www.capandhare.com/index.php
 
 Now a recipe derived from a whimsical contest which we thought was a throwaway, one-off brew has become our highest scoring beer. I am curious how this beer will stack up head to head against other scottish exports so there is a strong chance that this beer will appear at a few of the upcoming [Lone Star Circuit](http://www.lonestarcircuit.com/qualcomps.html) homebrew contests.
 
-![Thistle Dew score sheet](https://agalewerksblog.wordpress.com/wp-content/uploads/2016/06/screen-shot-2016-06-19-at-11-45-18-am.png?w=680)
+![Thistle Dew score sheet](/images/screen-shot-2016-06-19-at-11-45-18-am.png)

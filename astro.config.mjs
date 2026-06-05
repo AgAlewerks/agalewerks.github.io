@@ -2,16 +2,28 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import tailwindcss from '@tailwindcss/vite';
+import rehypeExternalLinks from "rehype-external-links";
 
-// IMPORTANT: When you deploy to GitHub Pages, update `site` and `base` to match your repo.
-// For a project page at https://<user>.github.io/<repo>/  use:
-//   site: 'https://<user>.github.io',
-//   base: '/<repo>/',
-// For a user/organization page (https://<user>.github.io/) just set:
-//   site: 'https://<user>.github.io',
-//   base: '/',
+// Custom domain (agalewerks.com via CNAME) — served from the root, no subpath.
+// If you ever switch back to a plain github.io project page, set:
+//   site: 'https://<user>.github.io', base: '/<repo>/'
 export default defineConfig({
-  site: 'https://example.github.io',
-  base: '/agalewerks/',
+  site: 'https://agalewerks.com',
+  base: '/',
   integrations: [mdx(), sitemap()],
+  vite: {
+    plugins: [tailwindcss()],
+  },
+  markdown: {
+    rehypePlugins: [
+      [
+        rehypeExternalLinks,
+        {
+          target: "\_blank",
+          rel: ["noopener", "noreferrer", "external"],
+        },
+      ],
+    ],
+  },
 });

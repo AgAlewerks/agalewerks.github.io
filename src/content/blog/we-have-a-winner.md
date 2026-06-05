@@ -2,12 +2,12 @@
 title: "We Have A Winner!"
 description: "Thistle Dew takes a stein at the 2017 Bluebonnet Brew-off — Scottish Ale, field of 24."
 pubDate: 2017-03-30
-heroImage: "https://agalewerksblog.wordpress.com/wp-content/uploads/2017/03/bluebonnet_2017_stein_scottish_export-e1490906948393.jpg?w=600"
+heroImage: "/images/bluebonnet_2017_stein_scottish_export-e1490906948393.jpg"
 categories: ["brewing"]
 tags: []
 ---
 
-![Stein for "Thistle Dew"](https://agalewerksblog.wordpress.com/wp-content/uploads/2017/03/bluebonnet_2017_stein_scottish_export-e1490906948393.jpg?w=508)
+![Stein for "Thistle Dew"](/images/bluebonnet_2017_stein_scottish_export-e1490906948393.jpg)
 
 *Stein Winner for Scottish Ale – Our Scottish Export "Thistle Dew"*
 

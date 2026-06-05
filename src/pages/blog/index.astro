@@ -47,99 +47,33 @@ const base = import.meta.env.BASE_URL;
 <html lang="en">
   <head>
     <BaseHead title={`Blog — ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
-    <style>
-      main {
-        width: 960px;
-      }
-      ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-      }
-      ul li {
-        width: calc(50% - 1rem);
-      }
-      ul li * {
-        text-decoration: none;
-        transition: 0.2s ease;
-      }
-      ul li:first-child {
-        width: 100%;
-        margin-bottom: 1rem;
-        text-align: center;
-      }
-      ul li:first-child .title {
-        font-size: 2.369rem;
-      }
-      ul li a {
-        display: block;
-      }
-      .title {
-        margin: 0;
-        color: rgb(var(--black));
-        line-height: 1;
-      }
-      .date {
-        margin: 0;
-        color: rgb(var(--gray));
-      }
-      .preview-description,
-      .preview-excerpt {
-        margin: 0.5rem 0 0;
-        color: rgb(var(--gray-dark));
-        line-height: 1.45;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-      }
-      .preview-description {
-        -webkit-line-clamp: 2;
-      }
-      .preview-excerpt {
-        -webkit-line-clamp: 3;
-      }
-      ul li a:hover .title {
-        color: var(--accent);
-      }
-      ul a:hover img {
-        box-shadow: var(--box-shadow);
-      }
-      @media (max-width: 720px) {
-        ul {
-          gap: 0.5em;
-        }
-        ul li {
-          width: 100%;
-          text-align: center;
-        }
-        ul li:first-child {
-          margin-bottom: 0;
-        }
-        ul li:first-child .title {
-          font-size: 1.563em;
-        }
-      }
-    </style>
   </head>
   <body>
     <Header />
-    <main>
+    <main class="max-w-5xl mx-auto px-4 py-12">
       <section>
-        <h1>All Posts</h1>
-        <ul>
+        <h1 class="text-4xl md:text-5xl font-bold text-ink mb-8 text-center">All Posts</h1>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-6 list-none p-0 m-0">
           {
-            postsWithPreview.map((post) => (
-              <li>
-                <a href={`${base}blog/${post.id}/`}>
-                  <h4 class="title">{post.data.title}</h4>
-                  <p class="date">
+            postsWithPreview.map((post, idx) => (
+              <li class:list={[idx === 0 ? "md:col-span-2 text-center" : ""]}>
+                <a
+                  href={`${base}blog/${post.id}/`}
+                  class="block p-5 rounded-lg no-underline transition-colors hover:bg-muted-light/60 group"
+                >
+                  <h4
+                    class:list={[
+                      "m-0 font-bold text-ink leading-tight group-hover:text-ale-amber transition-colors",
+                      idx === 0 ? "text-3xl md:text-4xl" : "text-xl",
+                    ]}
+                  >
+                    {post.data.title}
+                  </h4>
+                  <p class="text-sm text-muted my-1.5">
                     <FormattedDate date={post.data.pubDate} />
                   </p>
-                  <p class="preview-description">{post.data.description}</p>
-                  <p class="preview-excerpt">{post.excerpt}</p>
+                  <p class="text-muted-dark line-clamp-2 m-0">{post.data.description}</p>
+                  <p class="text-sm text-muted-dark/80 line-clamp-3 mt-2 mb-0">{post.excerpt}</p>
                 </a>
               </li>
             ))

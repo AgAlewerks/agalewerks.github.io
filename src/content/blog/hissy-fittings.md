@@ -2,14 +2,14 @@
 title: "Hissy Fittings"
 description: "A four-way gas manifold, three empty CO2 bottles, and the soapy-water diagnosis that finally found the leaks."
 pubDate: 2016-04-04
-heroImage: "https://agalewerksblog.wordpress.com/wp-content/uploads/2016/02/hissy_fitting.jpg"
+heroImage: "/images/hissy_fitting.jpg"
 categories: ["brewing"]
 tags: []
 ---
 
 This is the story of a hissy fitting and how I managed to roll through three bottles of CO2 before getting to the root of the problem.
 
-![4-way gas manifold](https://agalewerksblog.wordpress.com/wp-content/uploads/2016/02/hissy_fitting.jpg?w=253)
+![4-way gas manifold](/images/hissy_fitting.jpg)
 
 *4-way gas manifold*
 
@@ -25,7 +25,7 @@ Instead of doing to smart thing and checking all of the fittings for leak – it
 
 At this point the little light bulb over my head clicked on to full bright. I unplugged everything from the keezer and tossed it into a tub of soapy water.
 
-![Emergency Blow](https://agalewerksblog.wordpress.com/wp-content/uploads/2016/02/uss_springfield_ssn-761.jpg?w=306)
+![Emergency Blow](/images/uss_springfield_ssn-761.jpg)
 
 *Emergency Blow*
 

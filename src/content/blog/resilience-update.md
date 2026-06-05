@@ -8,7 +8,7 @@ tags: []
 
 Just a quick update, the 5-gallon batch that we brewed has been consumed. The [GoFundMe campaign](http://bit.ly/bf-campfire) has raised $400 and remains open. [http://bit.ly/bf-campfire](http://bit.ly/bf-campfire)
 
-![Donate now](https://agalewerksblog.wordpress.com/wp-content/uploads/2019/01/campfiredonatenow-03.jpg?w=400)
+![Donate now](/images/campfiredonatenow-03.jpg)
 
 *<https://bit.ly/bf-campfire>*
 

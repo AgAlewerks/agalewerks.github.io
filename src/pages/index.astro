@@ -20,30 +20,37 @@ const base = import.meta.env.BASE_URL;
   </head>
   <body>
     <Header />
-    <main>
-      <section class="intro">
-        <h1>Welcome to Ag Alewerks</h1>
-        <p>
+    <main class="max-w-3xl mx-auto px-4 py-12">
+      <section class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold text-ink mb-3">Welcome to Ag Alewerks</h1>
+        <p class="text-lg text-muted-dark">
           Hand crafted ales by Silvia &amp; Barry — a homebrewing chronicle of recipes,
           contests, and lessons learned from the kettle.
         </p>
-        <p>
-          <a href={`${base}blog/`}>Read all posts &rarr;</a>
-          &nbsp;·&nbsp;
-          <a href={`${base}our-beers/`}>See our beers</a>
+        <p class="mt-4">
+          <a href={`${base}blog/`} class="text-ale-amber hover:text-ale-dark font-semibold">Read all posts &rarr;</a>
+          <span class="mx-2 text-muted">·</span>
+          <a href={`${base}our-beers/`} class="text-ale-amber hover:text-ale-dark font-semibold">See our beers</a>
         </p>
       </section>
 
-      <section class="recent">
-        <h2>Recent posts</h2>
-        <ul>
+      <section>
+        <h2 class="text-2xl font-bold text-ink mb-6">Recent posts</h2>
+        <ul class="list-none p-0 m-0 space-y-4">
           {
             recent.map((post) => (
               <li>
-                <a href={`${base}blog/${post.id}/`}>
-                  <h3>{post.data.title}</h3>
-                  <p class="date"><FormattedDate date={post.data.pubDate} /></p>
-                  <p>{post.data.description}</p>
+                <a
+                  href={`${base}blog/${post.id}/`}
+                  class="block p-4 rounded-lg no-underline text-inherit transition-colors hover:bg-muted-light/60"
+                >
+                  <h3 class="m-0 text-xl font-bold text-ale-dark hover:text-ale-amber">
+                    {post.data.title}
+                  </h3>
+                  <p class="text-sm text-muted my-1">
+                    <FormattedDate date={post.data.pubDate} />
+                  </p>
+                  <p class="m-0 text-muted-dark">{post.data.description}</p>
                 </a>
               </li>
             ))
@@ -54,49 +61,3 @@ const base = import.meta.env.BASE_URL;
     <Footer />
   </body>
 </html>
-
-<style>
-  main {
-    width: 720px;
-    max-width: calc(100% - 2em);
-  }
-  .intro {
-    margin-bottom: 3em;
-    text-align: center;
-  }
-  .intro h1 {
-    font-size: 2.5em;
-    margin-bottom: 0.5em;
-  }
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  li {
-    margin-bottom: 2em;
-  }
-  li a {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    padding: 1em;
-    border-radius: 8px;
-    transition: background 0.2s;
-  }
-  li a:hover {
-    background: rgba(var(--gray-light), 0.6);
-  }
-  li h3 {
-    margin: 0 0 0.25em;
-    color: var(--accent-dark);
-  }
-  li .date {
-    color: rgb(var(--gray));
-    font-size: 0.9em;
-    margin-bottom: 0.5em;
-  }
-  li p {
-    margin: 0;
-  }
-</style>

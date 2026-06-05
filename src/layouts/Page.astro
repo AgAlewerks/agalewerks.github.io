@@ -18,19 +18,11 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
   </head>
   <body>
     <Header />
-    <main>
-      <article class="prose">
+    <main class="max-w-3xl mx-auto px-4 py-12">
+      <article class="prose prose-stone max-w-none">
         <slot />
       </article>
     </main>
     <Footer />
   </body>
 </html>
-
-<style>
-  .prose {
-    width: 100%;
-    max-width: 720px;
-    margin: 0 auto;
-  }
-</style>

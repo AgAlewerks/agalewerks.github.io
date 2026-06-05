@@ -1,114 +1,73 @@
-/*
-  Global styles for Ag Alewerks.
-  Based on the official Astro Blog template, with a warm "ale" color palette.
-*/
-:root {
-  --accent: #b35b1f;        /* amber ale */
-  --accent-dark: #6b3914;
-  --black: 17, 17, 17;
-  --gray: 96, 115, 159;
-  --gray-light: 229, 233, 240;
-  --gray-dark: 34, 41, 57;
-  --gray-gradient: rgba(var(--gray-light), 50%), #fff;
-  --box-shadow:
-    0 2px 6px rgba(var(--gray), 25%),
-    0 8px 24px rgba(var(--gray), 33%),
-    0 16px 32px rgba(var(--gray), 33%);
-  --font-size-sm: 0.875rem;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* ----------------------------------------------------------------
+   Theme tokens — Tailwind v4 style. These extend Tailwind's default
+   palette, so you can use `bg-ale-amber`, `text-ale-dark`, etc.
+   ---------------------------------------------------------------- */
+@theme {
+  --color-ale-amber: #b35b1f;
+  --color-ale-dark: #6b3914;
+  --color-ale-cream: #fff8ed;
+
+  --color-ink: #111111;
+  --color-muted: #60739f;
+  --color-muted-light: #e5e9f0;
+  --color-muted-dark: #222939;
+
+  --font-sans: "Atkinson", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
+
+/* ----------------------------------------------------------------
+   Font face — keep the Atkinson Hyperlegible faces from the
+   Astro Blog template.
+   ---------------------------------------------------------------- */
 @font-face {
-  font-family: 'Atkinson';
-  src: url('/fonts/atkinson-regular.woff') format('woff');
+  font-family: "Atkinson";
+  src: url("/fonts/atkinson-regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Atkinson';
-  src: url('/fonts/atkinson-bold.woff') format('woff');
+  font-family: "Atkinson";
+  src: url("/fonts/atkinson-bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
-body {
-  font-family: 'Atkinson', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  margin: 0;
-  padding: 0;
-  text-align: left;
-  background: linear-gradient(var(--gray-gradient)) no-repeat;
-  background-size: 100% 600px;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  color: rgb(var(--gray-dark));
-  font-size: 20px;
-  line-height: 1.7;
+
+/* ----------------------------------------------------------------
+   Base resets — tiny, kept on purpose. Most styling lives in
+   utility classes on the markup.
+   ---------------------------------------------------------------- */
+@layer base {
+  html {
+    font-family: var(--font-sans);
+  }
+  body {
+    background: linear-gradient(rgba(229, 233, 240, 0.5), #fff) no-repeat;
+    background-size: 100% 600px;
+    color: var(--color-muted-dark);
+    line-height: 1.7;
+  }
+  ::selection {
+    background: var(--color-ale-amber);
+    color: white;
+  }
 }
-main {
-  width: 720px;
-  max-width: calc(100% - 2em);
-  margin: auto;
-  padding: 3em 1em;
-}
-h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 0.5rem 0;
-  color: rgb(var(--black));
-  line-height: 1.2;
-}
-h1 { font-size: 3.052em; }
-h2 { font-size: 2.441em; }
-h3 { font-size: 1.953em; }
-h4 { font-size: 1.563em; }
-h5 { font-size: 1.25em; }
-strong, b { font-weight: 700; }
-a { color: var(--accent); }
-a:hover { color: var(--accent); }
-p { margin-bottom: 1em; }
-.prose p { margin-bottom: 2em; }
-textarea { width: 100%; font-size: 16px; }
-input { font-size: 16px; }
-table { width: 100%; }
-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-code {
-  padding: 2px 5px;
-  background-color: rgb(var(--gray-light));
-  border-radius: 2px;
-}
-pre {
-  padding: 1.5em;
-  border-radius: 8px;
-}
-pre > code {
-  all: unset;
-}
-blockquote {
-  border-left: 4px solid var(--accent);
-  padding: 0 0 0 20px;
-  margin: 0px;
-  font-size: 1.333em;
-}
-hr {
-  border: none;
-  border-top: 1px solid rgb(var(--gray-light));
-}
-@media (max-width: 720px) {
-  body { font-size: 18px; }
-  main { padding: 1em; }
-}
-.sr-only {
-  border: 0;
-  padding: 0;
-  margin: 0;
-  position: absolute !important;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-  clip: rect(1px 1px 1px 1px);
-  clip: rect(1px, 1px, 1px, 1px);
-  clip-path: inset(50%);
-  white-space: nowrap;
+
+/* ----------------------------------------------------------------
+   Customise the Typography plugin output (the .prose class used
+   inside BlogPost.astro) so Markdown content gets nice defaults
+   that match the rest of the site.
+   ---------------------------------------------------------------- */
+@layer components {
+  .prose {
+    --tw-prose-links: var(--color-ale-amber);
+    --tw-prose-headings: var(--color-ink);
+    --tw-prose-quote-borders: var(--color-ale-amber);
+    --tw-prose-bullets: var(--color-ale-amber);
+  }
 }

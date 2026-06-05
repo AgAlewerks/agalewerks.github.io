@@ -2,14 +2,14 @@
 title: "Sierra Nevada Resilience IPA"
 description: "Brewing the home-version of Sierra Nevada's Resilience IPA to support Camp Fire relief in Chico, California."
 pubDate: 2019-01-06
-heroImage: "https://agalewerksblog.wordpress.com/wp-content/uploads/2019/01/image_snbc_resilience_ipa-800x483.png"
+heroImage: "/images/image_snbc_resilience_ipa-800x483.png"
 categories: ["brewing"]
 tags: []
 ---
 
 To make a really long and detailed story short: I brewed the [home version](https://www.homebrewersassociation.org/homebrew-recipe/sierra-nevada-resilience-ipa/) of this delicious beer to help out with the fundraising. It will be on tap at the [Improving](https://improving.com/) Dallas office starting on January 10th. Here's the link to a [GoFundMe](http://bit.ly/bf-campfire) which feeds directly into the fund created by Sierra Nevada.
 
-![Resilience IPA](https://agalewerksblog.wordpress.com/wp-content/uploads/2019/01/image_snbc_resilience_ipa-800x483.png)
+![Resilience IPA](/images/image_snbc_resilience_ipa-800x483.png)
 
 ### Longer More Detailed Version
 

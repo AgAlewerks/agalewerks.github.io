@@ -2,14 +2,14 @@
 title: "In the Beginning"
 description: "How a gentle nudge from Silvia led to a Craigslist all-grain rig and our very first brew on December 13, 2014."
 pubDate: 2016-01-05
-heroImage: "https://agalewerksblog.wordpress.com/wp-content/uploads/2016/01/dallas_skyline.jpg?w=1200"
+heroImage: "/images/dallas_skyline.jpg"
 categories: ["brewing", "recipes"]
 tags: ["brewing", "homebrew"]
 ---
 
 I got a gentle nudge into home brewing. On several occasions, my loving wife, Silvia, said to me "Honey, you should start home brewing". After about the fifth suggestion, I started trolling Craigslist for used home brewing equipment.
 
-![Our all grain brewing rig](https://agalewerksblog.wordpress.com/wp-content/uploads/2016/01/brewing_rig.jpg?w=264)
+![Our all grain brewing rig](/images/brewing_rig.jpg)
 
 *Our all grain brewing rig.*
 

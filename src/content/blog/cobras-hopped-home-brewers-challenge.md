@@ -2,7 +2,7 @@
 title: "Cobra's Hopped Home Brewer's Challenge"
 description: "A box of mystery malts (and an almost-burned brewing rig) leads to our 80 Shilling Ale for the Cobra Brewing challenge."
 pubDate: 2016-04-04
-heroImage: "https://agalewerksblog.wordpress.com/wp-content/uploads/2016/04/not_fire_proof-e1459801316662.jpeg?w=600"
+heroImage: "/images/not_fire_proof-e1459801316662.jpeg"
 categories: ["brewing"]
 tags: []
 ---
@@ -15,7 +15,7 @@ Silvia did some digging around a variety of recipe sites looking for something t
 
 On March 20th we brewed an 80 Shilling Ale. According to Beersmith, we were shooting for a pre-boil gravity of 1.056 and achieved what I think is a respectable 1.050.
 
-![Not fire proof](https://agalewerksblog.wordpress.com/wp-content/uploads/2016/04/not_fire_proof-e1459801316662.jpeg?w=200)
+![Not fire proof](/images/not_fire_proof-e1459801316662.jpeg)
 
 This is also the day that I tried to burn down Shawn's rig and learned that the shiny bubble wrap on mashtuns is NOT fireproof. Fortunately there was a calmer person nearby with a spray bottle of sanitizer and the fire was quickly doused and the melty silver plastic was whisked away to safety.
 

@@ -2,7 +2,7 @@
 title: "Iron Mash 2020 (Covid-Style)"
 description: "A virtual Iron Mash brew day, an Ingredient Choice Matrix, and a single green crayon that led to ginger as our secret ingredient."
 pubDate: 2020-11-19
-heroImage: "https://agalewerksblog.wordpress.com/wp-content/uploads/2020/11/ironmash-2020.png?w=911"
+heroImage: "/images/ironmash-2020.png"
 categories: ["brewing"]
 tags: ["homebrew", "Iron Mash"]
 ---
@@ -13,7 +13,7 @@ The thought of loading up the truck with all of our stuff and hauling it to Ft W
 
 Friday, October 16th was the big kick-off Zoom meeting. All of the teams met virtually to review the rules and dates and got ready for the recipe challenge. At the conclusion of the rules review, Nigel sent out the recipe "trick". I don't know what the challenges were in years past, but this years was sort of a "Takeout Menu" with 6 groups and we had to build a recipe with one thing from each group. And we only had 90 minutes to come up with a recipe plan. I don't recall hearing a rule like 'first rule of Iron Mash is not revealing the challenge so here's the ingredient sheet from which we need to develop a recipe.
 
-![Ingredient Choice Matrix](https://agalewerksblog.wordpress.com/wp-content/uploads/2020/11/ironmash-2020.png?w=911)
+![Ingredient Choice Matrix](/images/ironmash-2020.png)
 
 *Ingredient Choice Matrix*
 
@@ -33,10 +33,10 @@ Since we home brew, we had plenty of specialty malts in the house, but they'd be
 
 Sitting here a month after brew day, the beer is starting to taste very good indeed. We've also gotten word from the HQ that we can use the same ingredient one more time in our beer. Right about the time that we dry hop the beer for packaging it will get another dose of ginger. Hopefully enough that the judges notice and don't question what ingredient we incorporated into our beer and not so much that the only thing they can taste is ginger and they feel like they are sipping on a Caribbean Ginger Beer.
 
-![Special ingredient](https://agalewerksblog.wordpress.com/wp-content/uploads/2020/11/special-ingredient.jpg?w=1024)
+![Special ingredient](/images/special-ingredient.jpg)
 
-![Wort](https://agalewerksblog.wordpress.com/wp-content/uploads/2020/11/wort-ironmash.jpg?w=576)
+![Wort](/images/wort-ironmash.jpg)
 
-![End of brew day](https://agalewerksblog.wordpress.com/wp-content/uploads/2020/11/eod-iron-mash.jpg?w=840)
+![End of brew day](/images/eod-iron-mash.jpg)
 
 *Brew day highlights*
