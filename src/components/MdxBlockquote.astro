@@ -1,0 +1,36 @@
+---
+// Render markdown blockquotes with testimonial styling and optional attribution.
+const rendered = await Astro.slots.render("default");
+
+const paragraphOnlyPattern = /<p>\s*(?:&mdash;|—|--)\s*([^<]+)\s*<\/p>\s*$/i;
+const inlineAttributionPattern =
+  /<p>([\s\S]*?)\s+(?:&mdash;|—|--)\s*([^<]+)\s*<\/p>\s*$/i;
+
+const paragraphOnlyMatch = rendered.match(paragraphOnlyPattern);
+const inlineAttributionMatch = rendered.match(inlineAttributionPattern);
+
+const speaker =
+  paragraphOnlyMatch?.[1]?.trim() || inlineAttributionMatch?.[2]?.trim();
+const quoteHtml = paragraphOnlyMatch
+  ? rendered.replace(paragraphOnlyPattern, "").trim()
+  : inlineAttributionMatch
+    ? rendered.replace(inlineAttributionPattern, "<p>$1</p>").trim()
+    : rendered;
+---
+
+<figure
+  class="not-prose my-8 rounded-2xl border border-ale-amber/25 bg-ale-cream/70 p-6 shadow-sm"
+>
+  <div class="text-4xl leading-none text-ale-amber" aria-hidden="true">"</div>
+  <blockquote
+    class="mt-2 m-0 text-[1.05rem] leading-relaxed text-muted-dark italic"
+    set:html={quoteHtml}
+  />
+  {
+    speaker && (
+      <figcaption class="mt-4 text-sm text-muted">
+        <span class="font-semibold text-ale-dark">{speaker}</span>
+      </figcaption>
+    )
+  }
+</figure>

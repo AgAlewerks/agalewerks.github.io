@@ -1,0 +1,23 @@
+---
+interface Props {
+  speaker: string;
+  speakerRole?: string;
+}
+
+const { speaker, speakerRole } = Astro.props;
+---
+
+<figure
+  class="not-prose my-8 rounded-2xl border border-ale-amber/25 bg-ale-cream/70 p-6 shadow-sm"
+>
+  <div class="text-4xl leading-none text-ale-amber" aria-hidden="true">"</div>
+  <blockquote
+    class="mt-2 m-0 text-[1.05rem] leading-relaxed text-muted-dark italic"
+  >
+    <slot />
+  </blockquote>
+  <figcaption class="mt-4 text-sm text-muted">
+    <span class="font-semibold text-ale-dark">{speaker}</span>
+    {speakerRole && <span>, {speakerRole}</span>}
+  </figcaption>
+</figure>

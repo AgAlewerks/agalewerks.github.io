@@ -1,21 +1,22 @@
 ---
-import { type CollectionEntry, getCollection, render } from 'astro:content';
-import BeerDetail from '../../layouts/BeerDetail.astro';
+import { type CollectionEntry, getCollection, render } from "astro:content";
+import BeerDetail from "../../layouts/BeerDetail.astro";
+import MdxBlockquote from "../../components/MdxBlockquote.astro";
 
 export async function getStaticPaths() {
-  const beers = await getCollection('beers');
+  const beers = await getCollection("beers");
   return beers.map((beer) => ({
     params: { slug: beer.id },
     props: beer,
   }));
 }
 
-type Props = CollectionEntry<'beers'>;
+type Props = CollectionEntry<"beers">;
 
 const beer = Astro.props;
 const { Content } = await render(beer);
 ---
 
 <BeerDetail {...beer.data}>
-  <Content />
+  <Content components={{ blockquote: MdxBlockquote }} />
 </BeerDetail>
