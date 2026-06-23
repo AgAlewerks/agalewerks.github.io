@@ -87,3 +87,6 @@ If you are still seeing a GitHub Pages action named "pages build and deployment"
 - [@astrojs/mdx](https://docs.astro.build/en/guides/integrations-guide/mdx/) for MDX support if you want it in posts
 - [@astrojs/rss](https://docs.astro.build/en/guides/rss/) for the RSS feed
 - [@astrojs/sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/) for sitemap-index.xml
+
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3430f5c6-459d-49e8-9334-485e0c03bcaa/deploy-status)](https://app.netlify.com/projects/agalewerks/deploys)
