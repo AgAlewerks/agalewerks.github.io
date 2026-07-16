@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brewing Water Cube — Salt Calculator</title>
+<style>
+  :root {
+    --bg: #faf7f2;
+    --panel: #ffffff;
+    --ink: #2b2620;
+    --muted: #8a8073;
+    --accent: #c8871a;
+    --accent2: #5b8dbe;
+    --green: #7aa860;
+    --border: #e6ded1;
+    --warn: #b3541e;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg); color: var(--ink);
+    padding: 24px; max-width: 1200px; margin: 0 auto;
+  }
+  h1 { font-size: 22px; margin-bottom: 4px; }
+  .sub { color: var(--muted); font-size: 13px; margin-bottom: 20px; }
+  .layout { display: grid; grid-template-columns: 380px 1fr; gap: 20px; align-items: start; }
+  @media (max-width: 900px) { .layout { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 12px; padding: 18px 20px; margin-bottom: 16px;
+  }
+  .card h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 14px; }
+  .ctrl { margin-bottom: 16px; }
+  .ctrl label { display: flex; justify-content: space-between; font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+  .ctrl label .val { color: var(--accent); font-variant-numeric: tabular-nums; }
+  .ctrl .hint { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-top: 2px; }
+  input[type=range] { width: 100%; accent-color: var(--accent); }
+  input[type=number] {
+    width: 90px; padding: 6px 8px; border: 1px solid var(--border);
+    border-radius: 8px; font-size: 14px; background: var(--bg);
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 7px 4px; border-bottom: 1px solid var(--border); }
+  th { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  td .tsp { color: var(--muted); font-size: 12px; }
+  .salt-name { font-weight: 600; }
+  .salt-formula { color: var(--muted); font-size: 12px; }
+  .profile { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .ion { background: var(--bg); border-radius: 8px; padding: 8px 10px; }
+  .ion .n { font-size: 11px; color: var(--muted); }
+  .ion .v { font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .ion .v span { font-size: 11px; font-weight: 400; color: var(--muted); }
+  .desc { font-size: 15px; line-height: 1.5; }
+  .desc b { color: var(--accent); }
+  .note { font-size: 12.5px; color: var(--warn); margin-top: 10px; line-height: 1.45; }
+  .footer { font-size: 11.5px; color: var(--muted); margin-top: 8px; line-height: 1.5; }
+  svg text { font-family: inherit; }
+  .src-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; }
+  .src-grid .f label { display: block; font-size: 12px; font-weight: 600; margin-bottom: 3px; }
+  .src-grid .f .u { color: var(--muted); font-weight: 400; }
+  .src-grid input[type=number] { width: 100%; }
+  .derived { font-size: 12px; color: var(--muted); margin-top: 10px; }
+</style>
+</head>
+<body>
+
+<h1>Brewing Water Cube</h1>
+<div class="sub">Based on the style cube in Palmer &amp; Kaminski, <i>Water: A Comprehensive Guide for Brewers</i>. Enter your source water below (Ward Labs or LaMotte BrewLab report), or leave at 0 for RO/distilled.</div>
+
+<div class="layout">
+  <div>
+    <div class="card">
+      <h2>Source water baseline</h2>
+      <div class="src-grid">
+        <div class="f"><label>Total hardness <span class="u">ppm as CaCO&#8323;</span></label><input type="number" id="thard" min="0" step="1" value="0"></div>
+        <div class="f"><label>Alkalinity <span class="u">ppm as CaCO&#8323;</span></label><input type="number" id="salk" min="0" step="1" value="0"></div>
+        <div class="f"><label>Calcium hardness <span class="u">ppm as CaCO&#8323;</span></label><input type="number" id="chard" min="0" step="1" value="0"></div>
+        <div class="f"><label>Magnesium hardness <span class="u">ppm as CaCO&#8323;</span></label><input type="number" id="mhard" min="0" step="1" value="0"></div>
+        <div class="f"><label>Sulfate <span class="u">ppm</span></label><input type="number" id="sso4" min="0" step="1" value="0"></div>
+        <div class="f"><label>Chloride <span class="u">ppm</span></label><input type="number" id="scl" min="0" step="1" value="0"></div>
+        <div class="f"><label>Sodium <span class="u">ppm</span></label><input type="number" id="sna" min="0" step="1" value="0"></div>
+      </div>
+      <div class="derived" id="derived"></div>
+    </div>
+
+    <div class="card">
+      <h2>Targets</h2>
+      <div class="ctrl">
+        <label>Calcium <span class="val"><span id="caVal"></span> ppm</span></label>
+        <input type="range" id="ca" min="40" max="160" step="5" value="100">
+        <div class="hint"><span>Soft</span><span>Medium</span><span>Firm</span></div>
+      </div>
+      <div class="ctrl">
+        <label>Sulfate : Chloride ratio <span class="val"><span id="ratioVal"></span></span></label>
+        <input type="range" id="ratio" min="0" max="100" step="1" value="50">
+        <div class="hint"><span>0.5:1 Malty</span><span>1:1 Balanced</span><span>4:1 Hoppy</span></div>
+      </div>
+      <div class="ctrl">
+        <label>Residual alkalinity <span class="val"><span id="raVal"></span> ppm as CaCO&#8323;</span></label>
+        <input type="range" id="ra" min="-100" max="100" step="5" value="-50">
+        <div class="hint"><span>&minus;100 Pale</span><span>0 Amber</span><span>+100 Dark</span></div>
+      </div>
+      <div class="ctrl">
+        <label>Magnesium (optional) <span class="val"><span id="mgVal"></span> ppm</span></label>
+        <input type="range" id="mg" min="0" max="40" step="1" value="0">
+        <div class="hint"><span>0</span><span>Adds Epsom salt; Palmer recommends 0&ndash;40 in water</span><span>40</span></div>
+      </div>
+      <div class="ctrl">
+        <label for="gal">Batch size</label>
+        <input type="number" id="gal" min="0.5" max="100" step="0.5" value="5"> <span style="font-size:13px">gallons</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Salt additions</h2>
+      <table>
+        <thead><tr><th>Addition</th><th class="num">Per gallon</th><th class="num">Total for batch</th></tr></thead>
+        <tbody id="saltRows"></tbody>
+      </table>
+      <div class="note" id="notes"></div>
+      <div class="footer">Teaspoon figures are approximate (gypsum 4.0&nbsp;g, CaCl&#8322; 3.4&nbsp;g, Epsom 4.5&nbsp;g, baking soda 4.4&nbsp;g per level tsp). Weigh with a 0.1&nbsp;g scale for best results. Add salts to the mash or to the full water volume.</div>
+    </div>
+  </div>
+
+  <div>
+    <div class="card">
+      <h2>Style cube</h2>
+      <svg id="cube" viewBox="0 0 560 480" width="100%"></svg>
+      <div class="desc" id="descLine"></div>
+    </div>
+
+    <div class="card">
+      <h2>Resulting water profile (ppm)</h2>
+      <div class="profile" id="profile"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ---- Ion contributions in ppm per gram per US gallon (3.78541 L) ----
+// fraction of ion by mass x 1000 / 3.78541
+const GYPSUM = { ca: 61.5, so4: 147.4 };        // CaSO4·2H2O
+const CACL2  = { ca: 72.0, cl: 127.4 };          // CaCl2·2H2O
+const EPSOM  = { mg: 26.0, so4: 103.0 };         // MgSO4·7H2O
+const SODA   = { na: 72.3, hco3: 191.9 };        // NaHCO3
+const ALK_PER_HCO3 = 50.0 / 61.02;               // ppm as CaCO3 per ppm HCO3
+
+const $ = id => document.getElementById(id);
+
+// ratio slider is logarithmic: 0 -> 0.5, 50 -> ~1.4, 100 -> 4
+function sliderToRatio(s) { return 0.5 * Math.pow(8, s / 100); }
+
+function fmtRatio(r) {
+  return (r >= 1 ? (Math.round(r * 10) / 10) + " : 1" : "1 : " + (Math.round(10 / r) / 10));
+}
+
+function calc() {
+  const caT   = +$("ca").value;
+  const R     = sliderToRatio(+$("ratio").value);
+  const raT   = +$("ra").value;
+  const mgT   = +$("mg").value;
+  const gal   = Math.max(0.5, +$("gal").value || 5);
+
+  const notes = [];
+
+  // ---- Source water baseline ----
+  // Ca ppm = Ca hardness (as CaCO3) x 40.08/100.09; Mg ppm = Mg hardness x 24.305/100.09
+  const srcCa  = (+$("chard").value || 0) * 0.4004;
+  const srcMg  = (+$("mhard").value || 0) * 0.2428;
+  const srcAlk = +$("salk").value || 0;
+  const srcSO4 = +$("sso4").value || 0;
+  const srcCl  = +$("scl").value  || 0;
+  const srcNa  = +$("sna").value  || 0;
+  $("derived").textContent = srcCa + srcMg > 0.1
+    ? `= ${Math.round(srcCa)} ppm Ca, ${Math.round(srcMg)} ppm Mg as ions. Source RA: ${Math.round(srcAlk - srcCa / 1.4 - srcMg / 1.7)} ppm as CaCO₃.`
+    : "All zeros = RO/distilled starting water.";
+
+  // ---- Calcium delta ----
+  let dCa = caT - srcCa;
+  if (dCa < -2) {
+    const pct = Math.round((1 - caT / srcCa) * 100);
+    notes.push(`Source calcium (${Math.round(srcCa)} ppm) is already above the ${caT} ppm target — salts can't remove ions. ` +
+      `Dilute with ~${pct}% RO/distilled water, or raise the target.`);
+  }
+  dCa = Math.max(0, dCa);
+
+  // ---- Epsom from Mg delta ----
+  let e = Math.max(0, (mgT - srcMg) / EPSOM.mg);
+  if (srcMg > mgT + 1) notes.push(`Source magnesium (${Math.round(srcMg)} ppm) already exceeds the target; no Epsom added.`);
+
+  // ---- Solve gypsum (g) and CaCl2 (c) for the deltas ----
+  //   GYPSUM.ca*g + CACL2.ca*c = dCa
+  //   srcSO4 + GYPSUM.so4*g + EPSOM.so4*e = R * (srcCl + CACL2.cl*c)
+  const k = GYPSUM.so4 / GYPSUM.ca; // sulfate per unit Ca from gypsum
+  let c = (srcSO4 + k * dCa + EPSOM.so4 * e - R * srcCl) / (CACL2.cl * R + k * CACL2.ca);
+  let g;
+  if (c < 0) {
+    c = 0; g = dCa / GYPSUM.ca;
+    notes.push("Source chloride is too high to reach this ratio within the calcium target — all remaining calcium added as gypsum. Achieved ratio shown below; consider RO dilution for hoppy styles.");
+  } else {
+    g = (dCa - CACL2.ca * c) / GYPSUM.ca;
+    if (g < 0) {
+      g = 0; c = dCa / CACL2.ca;
+      notes.push("Source sulfate (or Epsom) already supplies more sulfate than this ratio allows — gypsum set to 0. Achieved ratio shown below.");
+    }
+  }
+
+  // ---- Resulting mineral totals ----
+  const ca  = srcCa + GYPSUM.ca * g + CACL2.ca * c;
+  const mg  = srcMg + EPSOM.mg * e;
+  const so4 = srcSO4 + GYPSUM.so4 * g + EPSOM.so4 * e;
+  const cl  = srcCl + CACL2.cl * c;
+
+  // ---- Residual alkalinity: RA = Alk − Ca/1.4 − Mg/1.7 ----
+  const raNoSoda = srcAlk - ca / 1.4 - mg / 1.7;
+  let b = 0, acidMl = 0, alkFinal = srcAlk;
+  if (raT > raNoSoda + 0.5) {
+    b = (raT - raNoSoda) / (SODA.hco3 * ALK_PER_HCO3);
+    alkFinal = srcAlk + b * SODA.hco3 * ALK_PER_HCO3;
+  } else if (raT < raNoSoda - 0.5) {
+    // Neutralize alkalinity with 88% lactic acid (~11.8 mEq/mL): mEq/L = alk/50
+    const alkCut = Math.min(srcAlk, raNoSoda - raT);
+    acidMl = (alkCut / 50) * 3.78541 / 11.8;
+    alkFinal = srcAlk - alkCut;
+    if (raNoSoda - raT > srcAlk + 0.5) {
+      notes.push("Even after neutralizing all source alkalinity, RA bottoms out at " +
+        Math.round(raNoSoda - srcAlk) + " — achieved RA shown below.");
+    }
+  }
+  const na   = srcNa + SODA.na * b;
+  const hco3 = alkFinal / ALK_PER_HCO3;
+  const ra   = alkFinal - ca / 1.4 - mg / 1.7;
+  const ratioActual = cl > 0.01 ? so4 / cl : Infinity;
+
+  // Palmer's suggested limits (BA Collab Hour webinar)
+  if (na > 100)  notes.push("Sodium over 100 ppm — Palmer recommends <100; can taste salty with high chloride. Consider a lower RA target.");
+  if (so4 > 300) notes.push("Sulfate over 300 ppm — above Palmer's suggested maximum.");
+  if (cl > 200)  notes.push("Chloride over 200 ppm — above Palmer's suggested maximum.");
+  if (so4 + cl > 500) notes.push("Combined sulfate + chloride over 500 ppm — tends to taste minerally.");
+
+  // Yeast health: Palmer recommends Mg >= 40% of (Ca + Mg) in the WORT.
+  // A 1.040 all-malt wort contributes roughly 30 ppm Ca and 70 ppm Mg.
+  const wortCa = ca + 30, wortMg = mg + 70;
+  const parity = wortMg / (wortCa + wortMg);
+  const mgNeeded = Math.min(40, Math.max(0, Math.ceil((2 * ca - 150) / 3)));
+  if (parity < 0.40) {
+    notes.push(`Yeast health: estimated wort Mg parity is ${Math.round(parity * 100)}% of (Ca+Mg) — Palmer recommends ≥40% ` +
+      `(malt contributes ~30 Ca / ~70 Mg). Raise the magnesium slider to ~${mgNeeded} ppm` +
+      (mgNeeded >= 40 ? " (capped at Palmer's 40 ppm water maximum — consider lowering calcium instead)." : "."));
+  }
+
+  const rows = [
+    { name: "Gypsum", formula: "CaSO₄·2H₂O", gpg: g, tspG: 4.0, unit: "g" },
+    { name: "Calcium chloride", formula: "CaCl₂·2H₂O", gpg: c, tspG: 3.4, unit: "g" },
+    { name: "Epsom salt", formula: "MgSO₄·7H₂O", gpg: e, tspG: 4.5, unit: "g" },
+    { name: "Baking soda", formula: "NaHCO₃", gpg: b, tspG: 4.4, unit: "g" },
+  ];
+  if (acidMl > 0.005) rows.push({ name: "Lactic acid 88%", formula: "to neutralize alkalinity", gpg: acidMl, tspG: 4.9, unit: "mL" });
+  renderSalts(rows, gal);
+
+  renderProfile({ ca, mg, na, so4, cl, hco3, ra, ratioActual, parity });
+  renderDescriptors(ca, ratioActual, ra);
+  drawCube(ca, ratioActual, ra);
+  $("notes").innerHTML = notes.map(n => "&#9888; " + n).join("<br>");
+
+  $("caVal").textContent = caT;
+  $("ratioVal").textContent = fmtRatio(R);
+  $("raVal").textContent = (raT > 0 ? "+" : "") + raT;
+  $("mgVal").textContent = mgT;
+}
+
+function renderSalts(salts, gal) {
+  $("saltRows").innerHTML = salts.map(s => {
+    const total = s.gpg * gal;
+    const tsp = total / s.tspG;
+    const tspTxt = total > 0.05 ? ` <span class="tsp">(~${tsp < 0.1 ? "<0.1" : tsp.toFixed(1)} tsp)</span>` : "";
+    return `<tr>
+      <td><span class="salt-name">${s.name}</span><br><span class="salt-formula">${s.formula}</span></td>
+      <td class="num">${s.gpg.toFixed(2)} ${s.unit !== "g" ? s.unit : ""}</td>
+      <td class="num"><b>${total.toFixed(1)} ${s.unit}</b>${tspTxt}</td>
+    </tr>`;
+  }).join("");
+}
+
+function renderProfile(p) {
+  const items = [
+    ["Calcium (Ca)", p.ca, "50–150"],
+    ["Magnesium (Mg)", p.mg, "0–30"],
+    ["Sodium (Na)", p.na, "0–100"],
+    ["Sulfate (SO₄)", p.so4, "50–350"],
+    ["Chloride (Cl)", p.cl, "40–150"],
+    ["Bicarbonate (HCO₃)", p.hco3, "0–250"],
+  ];
+  let html = items.map(([n, v, range]) =>
+    `<div class="ion"><div class="n">${n}</div><div class="v">${Math.round(v)} <span>/ ${range}</span></div></div>`).join("");
+  html += `<div class="ion"><div class="n">Residual alkalinity</div><div class="v">${Math.round(p.ra)} <span>as CaCO₃</span></div></div>`;
+  html += `<div class="ion"><div class="n">SO₄ : Cl achieved</div><div class="v" style="font-size:14px">${isFinite(p.ratioActual) ? fmtRatio(p.ratioActual) : "—"}</div></div>`;
+  const pOK = p.parity >= 0.40;
+  html += `<div class="ion"><div class="n">Wort Mg parity (yeast)</div><div class="v" style="color:${pOK ? "var(--green)" : "var(--warn)"}">${Math.round(p.parity * 100)}% <span>/ ≥40%</span></div></div>`;
+  $("profile").innerHTML = html;
+}
+
+function renderDescriptors(ca, ratio, ra) {
+  const flavor = ratio >= 2 ? "Hoppy" : ratio >= 0.8 ? "Balanced" : "Malty";
+  const color  = ra < -33 ? "Pale" : ra <= 33 ? "Amber" : "Dark";
+  const struct = ca < 75 ? "Soft" : ca <= 125 ? "Medium" : "Firm";
+  const phT = color === "Pale" ? "5.2–5.4" : color === "Amber" ? "5.3–5.5" : "5.4–5.6";
+  $("descLine").innerHTML =
+    `This water suits a <b>${flavor.toLowerCase()}</b>, <b>${color.toLowerCase()}</b> beer with a <b>${struct.toLowerCase()}</b> structure. ` +
+    `<span style="color:var(--muted);font-size:13px">Target mash pH for ${color.toLowerCase()} beers: ${phT} (measured at room temp).</span>`;
+}
+
+// ---------------- Cube drawing ----------------
+function drawCube(ca, ratio, ra) {
+  // normalized coordinates 0..1
+  const x = Math.min(1, Math.max(0, (ca - 25) / 150));            // calcium, left->right
+  const y = Math.min(1, Math.max(0, (ra + 125) / 250));           // RA: -125 top .. +125 bottom
+  const rClamped = Math.min(4, Math.max(0.5, isFinite(ratio) ? ratio : 4));
+  const z = Math.log(4 / rClamped) / Math.log(8);                 // 4:1 front (0) .. 0.5:1 back (1)
+
+  // isometric projection
+  const OX = 90, OY = 165, W = 250, H = 250, DX = 115, DY = 85;
+  const P = (px, py, pz) => [OX + px * W + pz * DX, OY + py * H - pz * DY];
+  const pt = (px, py, pz) => P(px, py, pz).join(",");
+  const line = (a, b, cls) => { const [x1, y1] = a, [x2, y2] = b;
+    return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" ${cls}/>`; };
+
+  const thin = 'stroke="#d8cfc0" stroke-width="1"';
+  const bold = 'stroke="#2b2620" stroke-width="1.6"';
+  const dash = 'stroke="#c8871a" stroke-width="1.3" stroke-dasharray="4 3"';
+
+  let s = "";
+  // faces (light fill for depth)
+  s += `<polygon points="${pt(0,0,0)} ${pt(1,0,0)} ${pt(1,1,0)} ${pt(0,1,0)}" fill="#ffffff" ${bold}/>`;
+  s += `<polygon points="${pt(0,0,0)} ${pt(1,0,0)} ${pt(1,0,1)} ${pt(0,0,1)}" fill="#f4efe6" ${bold}/>`;
+  s += `<polygon points="${pt(1,0,0)} ${pt(1,0,1)} ${pt(1,1,1)} ${pt(1,1,0)}" fill="#ece5d8" ${bold}/>`;
+
+  // grid at thirds
+  for (const t of [1/3, 2/3]) {
+    s += line(P(t,0,0), P(t,1,0), thin) + line(P(0,t,0), P(1,t,0), thin);       // front
+    s += line(P(t,0,0), P(t,0,1), thin) + line(P(0,0,t), P(1,0,t), thin);       // top
+    s += line(P(1,t,0), P(1,t,1), thin) + line(P(1,0,t), P(1,1,t), thin);       // right
+  }
+
+  // marker + projections onto the three visible faces
+  const M = P(x, y, z);
+  const Mfront = P(x, y, 0), Mtop = P(x, 0, z), Mright = P(1, y, z);
+  s += line(M, Mfront, dash) + line(M, Mtop, dash) + line(M, Mright, dash);
+  for (const F of [Mfront, Mtop, Mright])
+    s += `<circle cx="${F[0]}" cy="${F[1]}" r="3.5" fill="#c8871a" opacity="0.45"/>`;
+  s += `<circle cx="${M[0]}" cy="${M[1]}" r="7" fill="#c8871a" stroke="#fff" stroke-width="2"/>`;
+
+  // ---- labels ----
+  const txt = (xx, yy, str, size = 12, anchor = "middle", weight = "normal", fill = "#2b2620") =>
+    `<text x="${xx}" y="${yy}" font-size="${size}" text-anchor="${anchor}" font-weight="${weight}" fill="${fill}">${str}</text>`;
+  const mut = "#8a8073";
+
+  // Calcium along top-back edge
+  s += txt((P(0,0,1)[0] + P(1,0,1)[0]) / 2, P(0,0,1)[1] - 34, "Calcium (ppm)", 13, "middle", "bold");
+  for (const [v, lx] of [[50, (50-25)/150], [100, (100-25)/150], [150, (150-25)/150]])
+    s += txt(P(lx,0,1)[0], P(lx,0,1)[1] - 14, v, 12, "middle", "normal", mut);
+
+  // Beer flavor along top-left depth edge
+  const flavorTicks = [["Hoppy", Math.log(4/4)/Math.log(8)], ["Balanced", Math.log(4/1)/Math.log(8)], ["Malty", Math.log(4/0.5)/Math.log(8)]];
+  for (const [lab, tz] of flavorTicks) {
+    const p = P(0,0,tz); s += txt(p[0] - 12, p[1] + 2, lab, 12, "end", "normal", mut);
+  }
+  s += txt(P(0,0,0.5)[0] - 78, P(0,0,0.5)[1] - 26, "Beer Flavor", 13, "end", "bold");
+
+  // Beer color on left front edge
+  s += txt(P(0,0.5,0)[0] - 62, P(0,0.5,0)[1] - 40, "Beer", 13, "end", "bold");
+  s += txt(P(0,0.5,0)[0] - 62, P(0,0.5,0)[1] - 24, "Color", 13, "end", "bold");
+  for (const [lab, ty] of [["Pale", 1/6 + 0.02], ["Amber", 0.5], ["Dark", 5/6 - 0.02]])
+    s += txt(P(0,ty,0)[0] - 10, P(0,ty,0)[1] + 4, lab, 12, "end", "normal", mut);
+
+  // RA on right back edge
+  s += txt(P(1,0.3,1)[0] + 14, P(1,0.15,1)[1], "Residual", 13, "start", "bold");
+  s += txt(P(1,0.3,1)[0] + 14, P(1,0.15,1)[1] + 16, "Alkalinity", 13, "start", "bold");
+  for (const [lab, ty] of [["−100", (-100+125)/250], ["0", 0.5], ["+100", (100+125)/250]])
+    s += txt(P(1,ty,1)[0] + 12, P(1,ty,1)[1] + 4, lab, 12, "start", "normal", mut);
+
+  // Sulfate:Chloride on right bottom depth edge
+  for (const [lab, tz] of [["4:1", 0], ["1:1", Math.log(4)/Math.log(8)], ["0.5:1", 1]]) {
+    const p = P(1,1,tz); s += txt(p[0] + 12, p[1] + 12, lab, 12, "start", "normal", mut);
+  }
+  s += txt(P(1,1,0.5)[0] + 62, P(1,1,0.5)[1] + 40, "Sulfate to", 13, "start", "bold");
+  s += txt(P(1,1,0.5)[0] + 62, P(1,1,0.5)[1] + 56, "Chloride Ratio", 13, "start", "bold");
+
+  // structure along bottom front
+  s += txt((P(0,1,0)[0] + P(1,1,0)[0]) / 2, P(0,1,0)[1] + 40, "Beer Structure", 13, "middle", "bold");
+  for (const [lab, tx] of [["Soft", 1/6], ["Medium", 0.5], ["Firm", 5/6]])
+    s += txt(P(tx,1,0)[0], P(tx,1,0)[1] + 22, lab, 12, "middle", "normal", mut);
+
+  $("cube").innerHTML = s;
+}
+
+// Hardness fields stay consistent: Total = Calcium + Magnesium (all as CaCO3)
+$("thard").addEventListener("input", () => {
+  $("mhard").value = Math.max(0, (+$("thard").value || 0) - (+$("chard").value || 0));
+});
+$("chard").addEventListener("input", () => {
+  const t = +$("thard").value || 0, ch = +$("chard").value || 0;
+  if (t > 0) $("mhard").value = Math.max(0, t - ch);
+  else $("thard").value = ch + (+$("mhard").value || 0);
+});
+$("mhard").addEventListener("input", () => {
+  $("thard").value = (+$("chard").value || 0) + (+$("mhard").value || 0);
+});
+
+for (const id of ["ca", "ratio", "ra", "mg", "gal", "thard", "chard", "mhard", "salk", "sso4", "scl", "sna"])
+  $(id).addEventListener("input", calc);
+calc();
+</script>
+</body>
+</html>
