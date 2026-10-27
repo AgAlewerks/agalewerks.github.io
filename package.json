@@ -17,6 +17,7 @@
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
     "@fontsource/atkinson-hyperlegible": "^5.2.8",
+    "@netlify/blobs": "^11.1.6",
     "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.0.0",
     "astro": "^7.4.2",
